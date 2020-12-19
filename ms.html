@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+let obj={
+  "text": "Paraphrasing is often defined as putting a passage from an author into your own words. However, what are your own words? How different must your paraphrase be from the original? The answer is it should be ______ different. The whole point of paraphrasing is to show you have read and understood another person's ideas and can summarise them in your own writing style rather than borrowing their phrases. If you just change a few words or add some bits ______ to an otherwise reproduced passage, you will probably ______ for plagiarism. You should aim to ______ and simplify a writer's ideas and describe them using different sentence structures and expressions. It is also important to credit the original writer by referencing.",
+  "options": [
+    [
+      "considerable",
+      "considerably",
+      "considerate",
+      "considerately"
+    ],
+    [
+      "in own",
+      "of your own",
+      "of yourself",
+      "with your own"
+    ],
+    [
+      "be penalised",
+      "be penalising",
+      "have penalised",
+      "penalise"
+    ],
+    [
+      "amplify",
+      "condense",
+      "copy",
+      "short"
+    ]
+  ]
+}
+    let arr=[];
+    let  re=/(______)+/ig
+    let  str=obj.text;
+    obj.options.forEach((item)=>{
+        let newstr=""
+            item.forEach((items)=>{
+                newstr+=`
+                        <option>${items}</option> 
+                `
+            })
+            let html=`
+                <select>${newstr}</select>
+             `;
+            arr=[...arr,html]
+    })
+    let num=-1;
+        for(var i=0;i<str.length;i++){
+            if(str.indexOf("______")){
+                num++
+                str=str.replace("______",arr[num])
+            }
+        }
+        document.documentElement.innerHTML=str
+        
+
+    </script>
+</body>
+</html>
